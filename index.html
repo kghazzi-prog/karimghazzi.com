@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karim Ghazzi: Full-service marketing consultant specializing in AI automation, blockchain, and mixed reality for SMEs.">
+  <title>Karim Ghazzi | Marketing &amp; Disruptive Technologies</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#f0a500',
+            teal: '#0891b2',
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Open Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      background: #ffffff;
+      color: #111827;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, #f0a500 0%, #0891b2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #fffef7 0%, #f0fafc 60%, #faf5ff 100%);
+    }
+
+    /* Ambient orbs for hero */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Nav */
+    .nav-solid {
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Service cards */
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    }
+
+    /* Headshot placeholder */
+    .headshot-wrap {
+      background: linear-gradient(135deg, rgba(240,165,0,0.08), rgba(8,145,178,0.08));
+      border: 1.5px dashed rgba(240,165,0,0.4);
+    }
+
+    /* Tag pill */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.65s ease forwards; }
+    .fade-up-delay { animation: fadeUp 0.65s ease 0.18s forwards; opacity: 0; }
+
+    /* Scroll bounce */
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(6px) translateX(-50%); }
+    }
+    .scroll-bounce { animation: scrollBounce 2s ease-in-out infinite; }
+
+    /* Blockquote left border */
+    .pullquote {
+      border-left: 3px solid #f0a500;
+      padding-left: 1rem;
+      font-style: italic;
+      color: #6b7280;
+    }
+
+    /* Form inputs */
+    input, textarea {
+      font-family: 'Open Sans', sans-serif;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f0a500 !important;
+      box-shadow: 0 0 0 3px rgba(240,165,0,0.1);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f9fafb; }
+    ::-webkit-scrollbar-thumb { background: rgba(240,165,0,0.4); border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center font-heading font-bold text-white text-sm shadow-md"
+             style="background: linear-gradient(135deg, #f0a500, #0891b2);">KG</div>
+        <span class="font-heading font-semibold text-gray-900 text-sm tracking-wide">Karim Ghazzi</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Corporate Solutions</a>
+        <a href="portfolio.html" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">My Portfolio</a>
+        <a href="https://www.whitebeard.marketing" target="_blank" rel="noopener"
+           class="text-sm text-gray-500 hover:text-gold transition-colors flex items-center gap-1">
+          WhiteBeard Marketing
+          <svg class="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+      </div>
+
+      <a href="#contact"
+         class="hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
+         style="background: linear-gradient(120deg, #f0a500, #f5b730); box-shadow: 0 4px 16px rgba(240,165,0,0.3);">
+        Get in Touch
+      </a>
+
+      <button id="mob-btn" class="md:hidden text-gray-500 hover:text-gray-900 p-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="mob-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path id="mob-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mob-menu" class="hidden md:hidden mt-3 px-6 pb-4 flex flex-col gap-4 border-t border-gray-100 pt-4 bg-white">
+      <a href="#services" class="text-sm text-gray-500 hover:text-gray-900">Corporate Solutions</a>
+      <a href="portfolio.html" class="text-sm text-gray-500 hover:text-gray-900">My Portfolio</a>
+      <a href="https://www.whitebeard.marketing" target="_blank" class="text-sm text-gray-500 hover:text-gold">WhiteBeard Marketing</a>
+      <a href="#contact" class="text-sm font-semibold text-gold">Get in Touch</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero-bg relative min-h-screen flex items-center overflow-hidden pt-16">
+    <div class="orb w-[420px] h-[420px] top-0 -left-32" style="background: rgba(240,165,0,0.12);"></div>
+    <div class="orb w-[420px] h-[420px] bottom-0 -right-32" style="background: rgba(8,145,178,0.1);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-20">
+
+        <!-- Left -->
+        <div class="fade-up">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7 border"
+               style="background: rgba(240,165,0,0.08); border-color: rgba(240,165,0,0.25);">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+            <span class="text-gold text-xs font-semibold tracking-widest uppercase" style="font-family:'Open Sans',sans-serif;">Available for Projects</span>
+          </div>
+
+          <h1 class="font-heading text-5xl lg:text-6xl xl:text-[68px] font-bold leading-[1.05] mb-5 text-gray-900">
+            Karim<br>
+            <span class="gradient-text">Ghazzi</span>
+          </h1>
+
+          <p class="text-lg text-gray-600 font-light mb-2">Freelance Marketing Consultant</p>
+          <p class="text-base font-semibold mb-6" style="color:#0891b2;">Helping SMEs adopt disruptive technologies.</p>
+
+          <p class="text-gray-500 text-sm leading-relaxed mb-10 max-w-md">
+            Full-service marketing professional with deep expertise in blockchain, AI automation, and mixed reality.
+            I help businesses prepare for the next disruption, from strategy to execution.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="portfolio.html"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-heading font-semibold text-sm text-white transition-all hover:opacity-90"
+               style="background: linear-gradient(120deg, #f0a500, #f5b730); box-shadow: 0 8px 28px rgba(240,165,0,0.3);">
+              View Portfolio
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href="#contact"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-gray-700 font-medium text-sm hover:border-teal hover:text-teal transition-all duration-200">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Headshot -->
+        <div class="fade-up-delay flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute inset-0 rounded-full scale-110"
+                 style="background: radial-gradient(ellipse, rgba(240,165,0,0.15) 0%, rgba(8,145,178,0.1) 60%, transparent 80%); filter: blur(24px);"></div>
+
+            <div class="relative w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full p-[1.5px]"
+                 style="background: linear-gradient(135deg, #f0a500, transparent 50%, #0891b2);">
+              <div class="headshot-wrap w-full h-full rounded-full flex flex-col items-center justify-center gap-3">
+                <svg class="w-14 h-14" style="color:rgba(240,165,0,0.35);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                <span class="text-[10px] tracking-[0.2em] uppercase" style="color:rgba(240,165,0,0.45); font-family:'Open Sans',sans-serif;">Photo coming soon</span>
+              </div>
+            </div>
+
+            <!-- Badge: INSEAD -->
+            <div class="absolute -bottom-3 -left-10 bg-white border border-gray-100 rounded-xl px-3 py-2 flex items-center gap-2 shadow-lg">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs flex-shrink-0"
+                   style="background: linear-gradient(135deg, #f0a500, #f5b730);">I</div>
+              <div>
+                <p class="text-gray-800 text-xs font-semibold leading-none mb-0.5" style="font-family:'Poppins',sans-serif;">INSEAD</p>
+                <p class="text-gray-400 text-[10px] leading-none">Blockchain Specialization</p>
+              </div>
+            </div>
+
+            <!-- Badge: Cardano -->
+            <div class="absolute -top-3 -right-8 bg-white border border-gray-100 rounded-xl px-3 py-2 flex items-center gap-2 shadow-lg">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs flex-shrink-0"
+                   style="background: linear-gradient(135deg, #0891b2, #22d3ee);">&#8371;</div>
+              <div>
+                <p class="text-gray-800 text-xs font-semibold leading-none mb-0.5" style="font-family:'Poppins',sans-serif;">Cardano</p>
+                <p class="text-gray-400 text-[10px] leading-none">Certified Associate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-bounce absolute bottom-8 left-1/2 flex flex-col items-center gap-1.5 opacity-40">
+      <span class="text-[10px] text-gray-400 tracking-[0.2em] uppercase" style="font-family:'Open Sans',sans-serif;">Scroll</span>
+      <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28 bg-white relative overflow-hidden">
+    <div class="orb w-72 h-72 top-0 right-0" style="background: rgba(8,145,178,0.06);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <p class="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-4" style="font-family:'Open Sans',sans-serif;">About Me</p>
+          <h2 class="font-heading text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-8">
+            Eclectic by nature.<br>
+            <span class="gradient-text">Disruptive by design.</span>
+          </h2>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="tag border" style="background:rgba(240,165,0,0.08); border-color:rgba(240,165,0,0.3); color:#b37700;">INSEAD Blockchain Specialization</span>
+            <span class="tag border" style="background:rgba(8,145,178,0.08); border-color:rgba(8,145,178,0.3); color:#0891b2;">Cardano Certified Associate</span>
+            <span class="tag bg-gray-100 border border-gray-200 text-gray-600">Finance &rarr; F&amp;B &rarr; Tech</span>
+            <span class="tag bg-gray-100 border border-gray-200 text-gray-600">Web3 &amp; Mixed Reality</span>
+            <span class="tag bg-gray-100 border border-gray-200 text-gray-600">AI &amp; Automation</span>
+          </div>
+        </div>
+
+        <div class="space-y-5 text-gray-500 text-sm leading-relaxed">
+          <p>
+            I'm a marketing generalist with eclectic experience spanning from the financial world to the F&amp;B sector.
+            Over the past four years, I've focused my practice on understanding disruptive technologies poised to
+            revolutionize the business landscape.
+          </p>
+          <p>
+            I've immersed myself in emerging trends: augmented and virtual reality, artificial intelligence, blockchain,
+            and the practical applications of cryptocurrencies and tokenization. I'm passionate about helping organizations
+            prepare for the next wave of disruption.
+          </p>
+          <p>
+            With comprehensive knowledge of Web3, mixed reality, and digital marketing, I provide SMEs and individual clients
+            with the guidance needed to stay ahead of the curve and leverage new technologies for a real competitive advantage.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services" class="py-28 bg-gray-50 relative overflow-hidden">
+    <div class="orb w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="background: rgba(240,165,0,0.05);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <p class="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-4" style="font-family:'Open Sans',sans-serif;">What I Do</p>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-gray-900">
+          Corporate <span class="gradient-text">Solutions</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- AI Automation -->
+        <div class="service-card p-8">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+               style="background: rgba(240,165,0,0.1); border: 1px solid rgba(240,165,0,0.2);">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg font-semibold text-gray-900 mb-3">A.I Automation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5">
+            Streamline workflows, reduce errors, and achieve measurable cost savings. From AI-powered customer service
+            to automated invoice processing. I help your business run smarter.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gold flex-shrink-0"></span>Workflow &amp; Process Automation
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gold flex-shrink-0"></span>AI Chatbots &amp; Customer Service
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gold flex-shrink-0"></span>Sentiment Analysis &amp; Reporting
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mixed & VR -->
+        <div class="service-card p-8">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+               style="background: rgba(8,145,178,0.1); border: 1px solid rgba(8,145,178,0.2);">
+            <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg font-semibold text-gray-900 mb-3">Mixed &amp; Virtual Reality</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5">
+            Immersive experiences that redefine how your customers interact with your brand.
+            From virtual property tours to 360 degree content creation and AR marketing campaigns.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-teal flex-shrink-0"></span>Virtual Tours &amp; 360 Experiences
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-teal flex-shrink-0"></span>Augmented Reality Marketing
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-teal flex-shrink-0"></span>3D Content &amp; Food Photography
+            </li>
+          </ul>
+        </div>
+
+        <!-- Blockchain -->
+        <div class="service-card p-8">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+               style="background: rgba(107,114,128,0.08); border: 1px solid rgba(107,114,128,0.15);">
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg font-semibold text-gray-900 mb-3">Blockchain Solutions</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5">
+            Leverage the transformative power of decentralized technology. I guide businesses through Web3 strategy,
+            tokenization, and blockchain integration with hands-on, certified expertise.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Web3 Strategy &amp; Marketing
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Tokenization Consulting
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Metaverse &amp; Organizational Solutions
+            </li>
+          </ul>
+        </div>
+
+        <!-- Full-stack Marketing -->
+        <div class="service-card p-8">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+               style="background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.18);">
+            <svg class="w-5 h-5" style="color:#a855f7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg font-semibold text-gray-900 mb-3">Full-stack Marketing</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5">
+            End-to-end digital marketing from strategy to execution. SEO, content, paid media, UX design,
+            video marketing, and e-commerce, all tailored to your business goals.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a855f7;"></span>Digital Strategy, SEO &amp; Content
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a855f7;"></span>PPC Advertising &amp; Lead Generation
+            </li>
+            <li class="flex items-center gap-2.5 text-xs text-gray-400">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a855f7;"></span>Video Marketing &amp; E-commerce
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHITEBEARD BAND -->
+  <section class="py-16 bg-white relative overflow-hidden" style="border-top:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+
+        <div class="flex items-center gap-5">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center font-heading font-bold text-gray-700 text-base border border-gray-200 bg-gray-50 flex-shrink-0">WB</div>
+          <div>
+            <p class="text-gold text-[10px] tracking-[0.2em] uppercase mb-1 font-semibold" style="font-family:'Open Sans',sans-serif;">Agency Arm</p>
+            <h3 class="font-heading text-2xl font-bold text-gray-900">WhiteBeard Marketing</h3>
+            <p class="text-gray-500 text-sm mt-0.5">Full-service digital agency for SMEs</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-6 md:max-w-md">
+          <p class="text-gray-500 text-sm text-center sm:text-left">
+            Need a full agency team behind your growth? WhiteBeard Marketing delivers comprehensive
+            digital solutions, from identity to execution.
+          </p>
+          <a href="https://www.whitebeard.marketing" target="_blank" rel="noopener"
+             class="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-700 text-sm font-medium hover:border-gold hover:text-gold transition-all duration-200 bg-white">
+            Visit Agency
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 bg-gray-50 relative overflow-hidden">
+    <div class="orb w-80 h-80 bottom-0 left-0" style="background: rgba(240,165,0,0.07);"></div>
+    <div class="orb w-80 h-80 top-0 right-0" style="background: rgba(8,145,178,0.06);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase mb-4" style="font-family:'Open Sans',sans-serif;">Let's Talk</p>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          Get in <span class="gradient-text">Touch</span>
+        </h2>
+        <p class="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed">
+          Ready to explore how disruptive technologies can give your business a competitive edge?
+          Let's have a conversation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+        <!-- Contact details -->
+        <div class="lg:col-span-2 space-y-6">
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border"
+                 style="background:rgba(240,165,0,0.08); border-color:rgba(240,165,0,0.2);">
+              <svg style="width:18px;height:18px;color:#f0a500;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-1" style="font-family:'Open Sans',sans-serif;">Email</p>
+              <a href="mailto:karim@whitebeard.marketing" class="text-gray-700 text-sm hover:text-gold transition-colors">karim@whitebeard.marketing</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border"
+                 style="background:rgba(8,145,178,0.08); border-color:rgba(8,145,178,0.2);">
+              <svg style="width:18px;height:18px;color:#0891b2;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-1" style="font-family:'Open Sans',sans-serif;">Phone</p>
+              <a href="tel:+96178884383" class="text-gray-700 text-sm hover:text-teal transition-colors">+(961) 7888 4383</a>
+            </div>
+          </div>
+
+          <!-- Social placeholders -->
+          <div class="pt-2">
+            <p class="text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-3" style="font-family:'Open Sans',sans-serif;">Social</p>
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center border border-dashed border-gray-200 opacity-40 cursor-not-allowed bg-gray-50">
+                <svg class="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center border border-dashed border-gray-200 opacity-40 cursor-not-allowed bg-gray-50">
+                <svg class="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </div>
+              <span class="text-[10px] text-gray-400 ml-1">Coming soon</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-2" style="font-family:'Open Sans',sans-serif;">Name</label>
+                <input type="text" name="name" placeholder="Your name" required
+                  class="w-full rounded-xl px-4 py-3 text-gray-800 text-sm placeholder-gray-300 border border-gray-200 bg-white transition-all">
+              </div>
+              <div>
+                <label class="block text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-2" style="font-family:'Open Sans',sans-serif;">Email</label>
+                <input type="email" name="email" placeholder="your@email.com" required
+                  class="w-full rounded-xl px-4 py-3 text-gray-800 text-sm placeholder-gray-300 border border-gray-200 bg-white transition-all">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-2" style="font-family:'Open Sans',sans-serif;">Subject</label>
+              <input type="text" name="subject" placeholder="How can I help?"
+                class="w-full rounded-xl px-4 py-3 text-gray-800 text-sm placeholder-gray-300 border border-gray-200 bg-white transition-all">
+            </div>
+            <div>
+              <label class="block text-[10px] text-gray-400 tracking-[0.15em] uppercase mb-2" style="font-family:'Open Sans',sans-serif;">Message</label>
+              <textarea name="message" rows="5" placeholder="Tell me about your project or challenge..." required
+                class="w-full rounded-xl px-4 py-3 text-gray-800 text-sm placeholder-gray-300 border border-gray-200 bg-white transition-all resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-3 rounded-xl font-heading font-semibold text-sm text-white transition-all duration-200 hover:opacity-90"
+              style="background: linear-gradient(120deg, #f0a500, #f5b730); box-shadow: 0 8px 24px rgba(240,165,0,0.25);">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full flex items-center justify-center font-bold font-heading text-white text-xs"
+             style="background: linear-gradient(135deg, #f0a500, #0891b2);">KG</div>
+        <span class="text-gray-500 text-sm font-heading">Karim Ghazzi</span>
+      </div>
+      <p class="text-gray-400 text-xs text-center">
+        &copy; 2025 Karim Ghazzi &middot;
+        <a href="https://www.whitebeard.marketing" target="_blank" class="hover:text-gold transition-colors">WhiteBeard Marketing</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('nav-solid', window.scrollY > 60);
+    });
+
+    const mobBtn    = document.getElementById('mob-btn');
+    const mobMenu   = document.getElementById('mob-menu');
+    const iconOpen  = document.getElementById('mob-icon-open');
+    const iconClose = document.getElementById('mob-icon-close');
+
+    mobBtn.addEventListener('click', () => {
+      const isHidden = mobMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isHidden);
+      iconClose.classList.toggle('hidden', isHidden);
+    });
+
+    mobMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
